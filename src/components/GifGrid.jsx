@@ -10,15 +10,14 @@ export const GifGrid = ({ category }) => {
     console.log(isLoading, images)
 
     return (
-        <>
-            <h1> {category} </h1>
-            <h2>Cargando...</h2>
+        !isLoading ? <>
+        <h1> {category} </h1>
 
-            <div className='card-grid'>
-                {images.map((image) =>
-                    <GifItem key={image.id} image={image} {...image} />
-                )}
-            </div>
-        </>
+        <div className='card-grid'>
+            {images.map((image) =>
+                <GifItem key={image.id} image={image} {...image} />
+            )}
+        </div>
+    </> : <h2>Cargando...</h2>
     )
 }
